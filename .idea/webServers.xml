@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f5f6bcaf-1242-47b7-a146-bf489168f277" name="bigtoken">
+        <fileTransfer rootFolder="/home/yifeng" accessType="SFTP" host="130.245.4.111" port="130" sshConfigId="b888dd0b-c4f4-4790-8b6f-064647ab35f2" sshConfig="bigtoken">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

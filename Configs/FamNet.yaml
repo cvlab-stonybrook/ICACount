@@ -11,8 +11,8 @@ INLR: 2e-2
 # Interactive Adaptation Gradient Steps
 INGS: 10
 # Path for data
-DATA_ROOT_DIR: 'D:/ICA_data/data'
+DATA_ROOT_DIR: '/data/add_disk1/yifeng/ICA_data/'
 # Path for log
-LOG_DIR: './log'
+LOG_DIR: './ICA_log'
 # Path for checkpoints
-CP_DIR: 'D:/ICA_data\checkpoints'
+CP_DIR: '/data/add_disk1/yifeng/ICA_checkpoints/'

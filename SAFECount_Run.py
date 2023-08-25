@@ -100,6 +100,9 @@ for seed in SEED_LIST:
         cfg_dir = './SAFECount/FSCD_LVIS.yaml'
     with open(cfg_dir) as f:
         config = EasyDict(yaml.load(f, Loader=yaml.FullLoader))
+    if args.dataset == 'fsc147':
+        config['dataset']['img_dir'] = os.path.join(Root_dir, 'images_384_VarV2')
+        config['dataset']['density_dir'] = os.path.join(Root_dir, 'gt_density_map_adaptive_384_VarV2')
     if args.dataset == 'fscdlvis':
         config['dataset']['fscdlvis_root_dir'] = Root_dir
     model = MySafecount_CS(config)

@@ -1,13 +1,13 @@
 # Number of Interactions
-INTER_TIME: 0
+INTER_TIME: 5
 # List of Random Seeds
-SEED_LIST: [5]
+SEED_LIST: [5, 10, 15, 20, 25]
 INLR: 1e-3
 # Interactive Adaptation Gradient Steps
 INGS: 30
 # Path for data
-DATA_ROOT_DIR: 'D:/ICA_data/data'
+DATA_ROOT_DIR: '/data/add_disk1/yifeng/ICA_data/'
 # Path for log
-LOG_DIR: './log'
+LOG_DIR: './ICA_log'
 # Path for checkpoints
-CP_DIR: 'D:/ICA_data\checkpoints'
+CP_DIR: '/data/add_disk1/yifeng/ICA_checkpoints/'
