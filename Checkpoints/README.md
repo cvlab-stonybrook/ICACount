@@ -1,8 +1,8 @@
-# ICACount
-
-[Data and Checkpoints](https://drive.google.com/drive/folders/1uEFHgqmnsDugelC7bYGUnE32fWkz87Hs?usp=sharing) <br>
-Will update the Readme Soon.
-
-## Contact
-yifehuang@cs.stonybrook.edu
-
+# The Checkpoints folder should be organized as follows:
+- 📂 **checkpoints**
+  - 📂 **FSCD_LVIS**
+    - 📄 BMNet.pth
+    - 📄 ...
+  - 📂 **FSC_147**
+    - 📄 BMNet.pth
+    - 📄 ...
