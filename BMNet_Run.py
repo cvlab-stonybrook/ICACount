@@ -206,10 +206,13 @@ for seed in SEED_LIST:
 
                     # Global Adaptation Loss
                     all_inter_mask = np.zeros((label.shape[0], label.shape[1]), dtype=np.uint8)
+                    large_region_num = 0
                     for int_mask in inter_mask_list:
                         if (gt_density * int_mask).sum() <= 4:
                             all_inter_mask += int_mask.cpu().numpy()
+                            large_region_num += 1
                     all_inter_mask = torch.from_numpy(all_inter_mask).to(device)
+                    #new_count_limit = 4 * large_region_num
                     new_count_limit = 4 * len(inter_mask_list)
                     global_region_loss, _ = interactive_loss_uncertain(output, gt_density, all_inter_mask,
                                                                        new_count_limit)
@@ -246,9 +249,9 @@ for seed in SEED_LIST:
             total_time = sum(inter_adapt_time)
             total_adapt_time.append(total_time)
             pbar.set_postfix(idx=str(im_id), inter_error=",".join(map(str, inter_error_result)), refresh=True)
+            #print(inter_error_result)
             pbar.update(1)
         return inter_result, total_adapt_time
-
 
     Result_dict = {}
     Result_dict['FinalMAE'] = []
