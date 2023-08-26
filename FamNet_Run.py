@@ -238,17 +238,24 @@ for seed in SEED_LIST:
 
                     # Global Adaptation Loss
                     all_inter_mask = np.zeros((label.shape[0], label.shape[1]), dtype=np.uint8)
+                    large_region_num = 0
                     for int_mask in inter_mask_list:
-                        all_inter_mask += int_mask.cpu().numpy()
+                        if (gt_density * int_mask).sum() <= 4:
+                            all_inter_mask += int_mask.cpu().numpy()
+                            large_region_num += 1
                     all_inter_mask = torch.from_numpy(all_inter_mask).to(device)
-                    new_count_limit = 4 * len(inter_mask_list)
-                    global_region_loss, _ = interactive_loss_uncertain(output, gt_density, all_inter_mask, new_count_limit)
+                    new_count_limit = 4 * large_region_num
+                    global_region_loss, _ = interactive_loss_uncertain(output, gt_density, all_inter_mask,
+                                                                       new_count_limit)
 
                     inertial_loss = ((adapted_regressor.ch_scale - 1) ** 2).sum() + (
                             adapted_regressor.ch_bias ** 2).sum() + (
-                                                (adapted_regressor.sp_scale - 1) ** 2).sum() + (
+                                            (adapted_regressor.sp_scale - 1) ** 2).sum() + (
                                             adapted_regressor.sp_bias ** 2).sum()
-                    inter_loss = 0.5 * local_region_loss + 0.5 * global_region_loss + 1e-3 * inertial_loss
+                    region_num = len(inter_mask_list)
+                    inter_loss = region_num / (
+                                large_region_num + region_num) * local_region_loss + large_region_num / (
+                                             large_region_num + region_num) * global_region_loss + 1e-3 * inertial_loss
                     if torch.is_tensor(inter_loss):
                         inter_loss.backward()
                         optimizer_inter.step()
