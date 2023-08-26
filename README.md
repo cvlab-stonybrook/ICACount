@@ -1,4 +1,7 @@
 # **[ICCV23] Interactive Class-Agnostic Object Counting**
+
+Our work using user interaction to improve class-agnostic visual counter.
+
 ![Local GIF](./Img/ICACountDemo.gif)
 
 ## Contact
