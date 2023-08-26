@@ -1,6 +1,10 @@
 # ICACount
 Will update the Readme Soon.
 
+## Contact
+If you have any problems please contact yifehuang@cs.stonybrook.edu
+
+
 ## Data and Checkpoints
 [Google Drive](https://drive.google.com/drive/folders/1uEFHgqmnsDugelC7bYGUnE32fWkz87Hs?usp=sharing) <br>
 
@@ -8,10 +12,6 @@ Will update the Readme Soon.
 ```
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1ai8bPEKogyms_W1qBDvokdSd8tzimGSI' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1ai8bPEKogyms_W1qBDvokdSd8tzimGSI" -O ExCount.zip && rm -rf /tmp/cookies.txt
 ```
-
-## Contact
-If you have any problems please contact yifehuang@cs.stonybrook.edu
-
 
 ## Data and Checkpoints
 Download on [Google Drive](https://drive.google.com/drive/folders/1uEFHgqmnsDugelC7bYGUnE32fWkz87Hs?usp=sharing) or: <br> 
