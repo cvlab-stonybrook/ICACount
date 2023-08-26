@@ -1,5 +1,5 @@
 # The Checkpoints folder should be organized as follows:
-- 📂 **checkpoints**
+- 📂 **Checkpoints**
   - 📂 **FSCD_LVIS**
     - 📄 BMNet.pth
     - 📄 ...

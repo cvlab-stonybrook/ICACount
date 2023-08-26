@@ -42,7 +42,7 @@ Download checkpoints:
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1ljsiTu8NfUQ6x0cHlcX12iM8JQjeVRMr' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1ljsiTu8NfUQ6x0cHlcX12iM8JQjeVRMr" -O checkpoints.zip && rm -rf /tmp/cookies.txt
 ```
 The Checkpoints folder should be organized as follows:
-- 📂 **checkpoints**
+- 📂 **Checkpoints**
   - 📂 **FSCD_LVIS**
     - 📄 BMNet.pth
     - 📄 ...
