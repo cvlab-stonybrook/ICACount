@@ -244,7 +244,7 @@ for seed in SEED_LIST:
                             all_inter_mask += int_mask.cpu().numpy()
                             large_region_num += 1
                     all_inter_mask = torch.from_numpy(all_inter_mask).to(device)
-                    new_count_limit = 4 * len(inter_mask_list)
+                    new_count_limit = 4 * large_region_num
                     global_region_loss, _ = interactive_loss_uncertain(output, gt_density, all_inter_mask,
                                                                        new_count_limit)
 
