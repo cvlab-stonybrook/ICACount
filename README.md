@@ -1,10 +1,20 @@
 # ICACount
-Will update the Readme Soon.
+
+<span style="font-size:20px;">**[ICCV23] Interactive Class-Agnostic Object Counting**<br></span>
+![Local GIF](./Img/ICACountDemo.gif)
 
 ## Contact
 If you have any problems please contact yifehuang@cs.stonybrook.edu
 
-
+## To-Do List
+- [x] Colab
+- [ ] Environment Set up
+- [ ] Script for segment density map
+- [ ] Script for Visualization 
+- [ ] Demo
+- [ ] Original Interface
+- [ ] Interface with exemplar providing
+- [ ] Hugging Face
 ## Data and Checkpoints
 [Google Drive](https://drive.google.com/drive/folders/1uEFHgqmnsDugelC7bYGUnE32fWkz87Hs?usp=sharing) <br>
 
