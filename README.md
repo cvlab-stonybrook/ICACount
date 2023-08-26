@@ -12,7 +12,6 @@ If you have any problems please contact yifehuang@cs.stonybrook.edu
 - [ ] Environment Set up
 - [ ] Script for segment density map
 - [ ] Script for Visualization 
-- [ ] Demo
 - [ ] Original Interface
 - [ ] Interface with exemplar providing
 - [ ] Hugging Face
