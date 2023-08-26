@@ -1,6 +1,6 @@
 # ICACount
 
-<span style="font-size:36px;">**[ICCV23] Interactive Class-Agnostic Object Counting**<br></span>
+<span style="font-size:larger;">**[ICCV23] Interactive Class-Agnostic Object Counting**<br></span>
 ![Local GIF](./Img/ICACountDemo.gif)
 
 ## Contact
