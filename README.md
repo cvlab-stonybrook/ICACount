@@ -1,7 +1,4 @@
-# ICACount
-
-<span style="font-size:larger;">**[ICCV23] Interactive Class-Agnostic Object Counting**<br></span>
-![Local GIF](./Img/ICACountDemo.gif)
+# [ICCV23] **Interactive Class-Agnostic Object Counting**
 
 ## Contact
 If you have any problems please contact yifehuang@cs.stonybrook.edu
