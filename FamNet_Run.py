@@ -16,14 +16,18 @@ warnings.filterwarnings("ignore", "Arguments other than a weight enum or.*are de
 warnings.filterwarnings("ignore", "Using a target size.*that is different to the input size.*", category=UserWarning)
 
 parser = argparse.ArgumentParser(description="ICACount Experiment")
-parser.add_argument('--split', type=str, default='val', required=False)
+parser.add_argument('--split', type=str, default='test', required=False)
 parser.add_argument('--gpu_id', type=int, default=0, required=False)
-parser.add_argument('--dataset', type=str, default='fsc147', required=False)
+parser.add_argument('--dataset', type=str, default='fscdlvis', required=False)
 args = parser.parse_args()
 assert args.split in ['test', 'val'], 'Split not supported'
 assert args.dataset in ['fsc147', 'fscdlvis'], 'Dataset not supported'
 
-cfg = load_cfg('./Configs/FamNet.yaml')
+default_cfg = load_cfg('Configs/Default.yaml')
+if args.dataset == 'fsc147':
+    cfg = OmegaConf.merge(default_cfg, load_cfg('Configs/FamNet_fsc.yaml'))
+else:
+    cfg = OmegaConf.merge(default_cfg, load_cfg('Configs/FamNet_fscd.yaml'))
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu_id)
 current_time = datetime.datetime.now()
@@ -61,10 +65,6 @@ if torch.cuda.is_available():
 else:
     device = 'cpu'
 
-
-
-
-
 for seed in SEED_LIST:
     print('Current seed: ', seed)
     random.seed(seed)
@@ -88,8 +88,10 @@ for seed in SEED_LIST:
     # Test Time Adaptation weight in learning to count everything
     weight_mincount = 1e-9
     weight_perturbation = 1e-4
-    Test_Adaptation = True
-
+    if args.dataset == 'fsc147':
+        Test_Adaptation = True
+    else:
+        Test_Adaptation = False
     Model_dir = os.path.join(Cp_dir, 'FamNet.pth')
     if args.dataset == 'fsc147':
         val_dataset = FscBgDataset(Root_dir, 'val', False)
@@ -238,13 +240,10 @@ for seed in SEED_LIST:
 
                     # Global Adaptation Loss
                     all_inter_mask = np.zeros((label.shape[0], label.shape[1]), dtype=np.uint8)
-                    large_region_num = 0
                     for int_mask in inter_mask_list:
-                        if (gt_density * int_mask).sum() <= 4:
-                            all_inter_mask += int_mask.cpu().numpy()
-                            large_region_num += 1
+                        all_inter_mask += int_mask.cpu().numpy()
                     all_inter_mask = torch.from_numpy(all_inter_mask).to(device)
-                    new_count_limit = 4 * large_region_num
+                    new_count_limit = 4 * len(inter_mask_list)
                     global_region_loss, _ = interactive_loss_uncertain(output, gt_density, all_inter_mask,
                                                                        new_count_limit)
 
@@ -252,10 +251,7 @@ for seed in SEED_LIST:
                             adapted_regressor.ch_bias ** 2).sum() + (
                                             (adapted_regressor.sp_scale - 1) ** 2).sum() + (
                                             adapted_regressor.sp_bias ** 2).sum()
-                    region_num = len(inter_mask_list)
-                    inter_loss = region_num / (
-                                large_region_num + region_num) * local_region_loss + large_region_num / (
-                                             large_region_num + region_num) * global_region_loss + 1e-3 * inertial_loss
+                    inter_loss = 0.5 * local_region_loss + 0.5 * global_region_loss + 1e-3 * inertial_loss
                     if torch.is_tensor(inter_loss):
                         inter_loss.backward()
                         optimizer_inter.step()

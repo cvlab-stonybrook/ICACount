@@ -1,0 +1,4 @@
+# Interactive Adaptation Learning Rate
+INLR: 3e-4
+# Interactive Adaptation Gradient Steps
+INGS: 40

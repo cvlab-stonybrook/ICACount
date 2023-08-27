@@ -1,0 +1,8 @@
+# Test Time Adaptation Learning Rate(Original Paper)
+ADLR: 1e-7
+# Test Time Adaptation Gradient Steps(Original Paper)
+ADGS: 100
+# Interactive Adaptation Learning Rate
+INLR: 1e-2
+# Interactive Adaptation Gradient Steps
+INGS: 20
