@@ -53,7 +53,7 @@ The Checkpoints folder should be organized as follows:
 First update the checkpoint path and dataset path in the config file. <br>
 Then run the following scripts. <br>
 
-*** Important about reproducibility*** <br>
+***Important about reproducibility*** <br>
 ```
 torch.nn.functional.interpolate
 ```
