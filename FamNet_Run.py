@@ -283,7 +283,6 @@ for seed in SEED_LIST:
     Result_dict = {}
     Result_dict['FinalMAE'] = []
     Result_dict['FinalRMSE'] = []
-    Test_Adaptation = True
     show_detail = False
 
     Inter_result, total_adapt_time = adapted_inference()
