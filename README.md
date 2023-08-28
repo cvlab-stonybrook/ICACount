@@ -53,6 +53,11 @@ The Checkpoints folder should be organized as follows:
 First update the checkpoint path and dataset path in the config file. <br>
 Then run the following scripts. <br>
 
+*** Important about reproducibility*** <br>
+```
+torch.nn.functional.interpolate
+```
+may produce nondeterministic gradients when given tensors on a CUDA device. See Reproducibility for more information.
 ### FamNet [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1JlaJi4tBtvbv6vL2LWAcy7LsER-vgIgB?usp=sharing)
 FSC-147:
 ```
