@@ -59,7 +59,8 @@ torch.nn.functional.interpolate
 ```
 may produce nondeterministic gradients when given tensors on a CUDA device. See Reproducibility for more information.
 [TORCH.NN.FUNCTIONAL.INTERPOLATE](https://pytorch.org/docs/stable/generated/torch.nn.functional.interpolate.html). <br>
-In the context of interactive adaptation, it's important to note that the gradient is required. All three class-agnostic counters utilize nn.UpsamplingBilinear2d. As a result, you may observe slight variations in the output for each run. This behavior persists even when you fix the random seed and set torch.backends.cudnn.deterministic to true.
+In the context of interactive adaptation, it's important to note that the gradient is required. All three class-agnostic counters utilize nn.UpsamplingBilinear2d. As a result, you may observe slight variations in the output for each run. This behavior persists even when you fix the random seed and set torch.backends.cudnn.deterministic to true. <br>
+The variance on SAFECount and BMNet is smaller, since the adaptation learning rate for these two counters are small.
 ### FamNet [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1JlaJi4tBtvbv6vL2LWAcy7LsER-vgIgB?usp=sharing)
 FSC-147:
 ```
