@@ -1,20 +1,14 @@
 # **[ICCV23] Interactive Class-Agnostic Object Counting**
 
-Our work using user interaction to improve class-agnostic visual counter.
+Our work uses user interaction to improve class-agnostic visual counter.
 
 ![Local GIF](./Img/ICACountDemo.gif)
 
 ## Contact
-If you have any problems please contact yifehuang@cs.stonybrook.edu
+If you have any issues, please contact yifehuang@cs.stonybrook.edu
 
 ## To-Do List
-- [x] Colab
-- [ ] Environment Set up
-- [ ] Script for segment density map
-- [ ] Script for Visualization 
-- [ ] Original Interface
 - [ ] Interface with exemplar providing
-- [ ] Hugging Face
 
 
 ## Data and Checkpoints
