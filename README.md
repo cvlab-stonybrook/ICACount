@@ -2,6 +2,8 @@
 
 Our work using user interaction to improve class-agnostic visual counter.
 
+[Project](https://yifehuang97.github.io/ICACountProjectPage/) [PDF](https://arxiv.org/abs/2309.05277)
+
 ![Local GIF](./Img/ICACountDemo.gif)
 
 ## Contact
