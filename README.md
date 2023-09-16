@@ -12,6 +12,13 @@ If you have any issues, please contact yifehuang@cs.stonybrook.edu
 ## To-Do List
 - [ ] Interface with exemplar providing
 
+## Environment set up
+```
+conda create -n ICACount python=3.8.8
+conda activate ICACount
+pip install torch==1.12.1+cu116 torchvision==0.13.1+cu116 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu116
+pip install omegaconf
+```
 
 ## Data and Checkpoints
 Download on [Google Drive](https://drive.google.com/drive/folders/1uEFHgqmnsDugelC7bYGUnE32fWkz87Hs?usp=sharing) or: <br> 
