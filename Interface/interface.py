@@ -404,6 +404,10 @@ class ICACountInterface(tk.Tk):
         self.Visual_Label.configure(image=default_show)
         self.Visual_Label.image = default_show
 
+        count_result = 0
+        count_result = np.round(count_result, decimals=2)
+        self.count_res_string_var.set(str(count_result))
+
     def exemplar_undo(self):
         if len(self.EXEMPLAR_LIST) == 0:
             return
@@ -674,6 +678,10 @@ class ICACountInterface(tk.Tk):
         with torch.no_grad():
             output = self.visual_counter.inter_inference(self.simifeat)
 
+        count_result = output.sum().item()
+        count_result = np.round(count_result, decimals=2)
+        self.count_res_string_var.set(str(count_result))
+
         fig = plt.figure()
         ax = fig.add_subplot(1, 1, 1)
         ax.set_axis_off()
@@ -737,6 +745,11 @@ class ICACountInterface(tk.Tk):
             temp_density = self.density_list[0]
             temp_visual = self.visual_list[0]
             assert len(self.visual_couter_list) == len(self.density_list) == len(self.visual_list) == len(self.inter_mask_list) + 1
+
+            count_result = temp_density.sum().item()
+            count_result = np.round(count_result, decimals=2)
+            self.count_res_string_var.set(str(count_result))
+
             fig = plt.figure()
             ax = fig.add_subplot(1, 1, 1)
             ax.set_axis_off()
@@ -828,6 +841,10 @@ class ICACountInterface(tk.Tk):
             self.Visual_Label.configure(image=visual_show)
             self.Visual_Label.image = visual_show
 
+            count_result = temp_density.sum().item()
+            count_result = np.round(count_result, decimals=2)
+            self.count_res_string_var.set(str(count_result))
+
     def interactive_reset(self):
         if not self.INIT_COUNT_FLAG:
             messagebox.showinfo("Initial Counting First", "Please do initial counting first.")
@@ -881,6 +898,10 @@ class ICACountInterface(tk.Tk):
         visual_show = ImageTk.PhotoImage(visual_img)
         self.Visual_Label.configure(image=visual_show)
         self.Visual_Label.image = visual_show
+
+        count_result = temp_density.sum().item()
+        count_result = np.round(count_result, decimals=2)
+        self.count_res_string_var.set(str(count_result))
 
 
 if __name__ == "__main__":
