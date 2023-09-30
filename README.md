@@ -98,7 +98,7 @@ sh safecount_lvis.sh
 ```
 
 ## Start Interactive Interface
-
+We also provide a new demo for the updated interface. Check it in the Interface folder. <br>
 ```
 cd ./Interface
 python interface.py
