@@ -9,9 +9,6 @@ Our work uses user interaction to improve class-agnostic visual counter.
 ## Contact
 If you have any issues, please contact yifehuang@cs.stonybrook.edu
 
-## To-Do List
-- [ ] Interface with exemplar providing
-
 ## Environment set up
 ```
 conda create -n ICACount python=3.8.8
@@ -100,3 +97,9 @@ cd Scripts
 sh safecount_lvis.sh
 ```
 
+## Start Interactive Interface
+
+```
+cd ./Interface
+python interface.py
+```
