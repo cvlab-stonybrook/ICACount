@@ -20,7 +20,7 @@ pip install easydict
 ```
 
 ## Data and Checkpoints
-Get [FSC-147](https://github.com/cvlab-stonybrook/LearningToCountEverything) and [FSCD-LVIS](https://github.com/VinAIResearch/Counting-DETR) from the original repo.
+Get [FSC-147](https://github.com/cvlab-stonybrook/LearningToCountEverything) and [FSCD-LVIS](https://github.com/VinAIResearch/Counting-DETR) from the original repo. <br>
 
 For rapid and easy reproduction, you may opt to download our provided version.
 [Google Drive](https://drive.google.com/drive/folders/1uEFHgqmnsDugelC7bYGUnE32fWkz87Hs?usp=sharing) or: <br> 
